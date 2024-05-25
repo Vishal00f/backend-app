@@ -8,11 +8,9 @@
 //method 1 we use it is promise based approach 
 //request handler is nothing but a function passed to execute which is async
 const asyncHandler = (requestHandler) => {
-    (req, res, next) => {
+   return (req, res, next) => {
         Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
     }
-
-    
 
 }
 

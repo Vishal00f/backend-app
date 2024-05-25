@@ -48,7 +48,7 @@ const userSchema = new Schema({
 //here we can't use arrow function in the callback because in arrow functions we cant take reference of this 
 userSchema.pre('save', async function (next) {
     if (!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password, 10)
+    this.password =await bcrypt.hash(this.password, 10)
     next()
 })
 
